@@ -48,14 +48,27 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 
-  void _incrementCounter() {
+  var _skills = <String>[
+    "HTML",
+    "CSS",
+    "Node.js",
+    "GoLang",
+    "C",
+    "C++",
+    "JavaScript",
+    "TypeScript",
+    "Dart",
+    "Flutter",
+  ];
+
+  void _addSkill() {
     setState(() {
       // This call to setState tells the Flutter framework that something has
       // changed in this State, which causes it to rerun the build method below
       // so that the display can reflect the updated values. If we changed
       // _counter without calling setState(), then the build method would not be
       // called again, and so nothing would appear to happen.
-      _counter++;
+      _counter = (_counter + 1) % (_skills.length + 1);
     });
   }
 
@@ -91,23 +104,37 @@ class _MyHomePageState extends State<MyHomePage> {
           // center the children vertically; the main axis here is the vertical
           // axis because Columns are vertical (the cross axis would be
           // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
+            SizedBox(height: 20),
+            Container(
+              width: 200,
+              height: 200,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                image: DecorationImage(
+                  image: AssetImage("assets/images/mckoss.jpg"),
+                  fit: BoxFit.fill,
+                ),
+              ),
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
+            SizedBox(height: 20),
+            Text("Hi!  I'm Mike!",
+                style: Theme.of(context).textTheme.headline3),
+            SizedBox(height: 20),
+            Text("Some of my skills are ...",
+                style: Theme.of(context).textTheme.headline4),
+            SizedBox(height: 20),
+            ..._skills.take(_counter).map(
+                (s) => Text(s, style: Theme.of(context).textTheme.headline5)),
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
+        onPressed: _addSkill,
         tooltip: 'Increment',
         child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      ),
     );
   }
 }

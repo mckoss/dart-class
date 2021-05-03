@@ -1,16 +1,15 @@
 # portfolio
 
-A new Flutter project.
+A sample portfolio application in Flutter.
 
-## Getting Started
+![screenshot](docs/screenshot.png)
 
-This project is a starting point for a Flutter application.
+# Issues
 
-A few resources to get you started if this is your first Flutter project:
+- Don't yet know how to properly handle scroll or overflow.
+- Alignment of "Some of my skills" on phone is not centered.
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+# Questions/Additions
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- Would like to try ListView (embedded in a Column was yielding a layout error).
+- Number the items in the list.
